@@ -1,21 +1,21 @@
-from setuptools import setup, find_packages
-
-def long_desc():
-    with open('README.md', 'rb') as f:
-        return f.read()
+from setuptools import setup
 
 if __name__ == "__main__":
     setup(name="django-nsa",
           version="0.1",
-          url="https://github.com/lvm/django-nsa",
+          url="https://github.com/lvm/django_nsa",
           license="MIT",
           author="Mauro",
           author_email="mauro@cacavoladora.org",
           description="An easy way for the NSA to see what's going on in our Django projects.",
-          long_description=long_desc(),
+          long_description=open('README.md').read(),
           keywords="nsa django hype yay echelon".split(),
-          packages=find_packages(),
+	  include_package_data=True,
+          packages=['nsa'],
           zip_safe=False,
+          install_requires=[
+            "Django >= 1.4.3",
+            ],
           classifiers=[
             "Development Status :: 4 - Beta",
             "Environment :: Web Environment",
