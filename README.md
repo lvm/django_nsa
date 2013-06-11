@@ -68,6 +68,12 @@ Share the ~~end of privacy~~ good news (or don't, after all users shouldn't know
 * [flask-nsa](https://github.com/plausibility/flask-nsa) by @plausibility.
 * [nsa_panel](https://github.com/goshakkk/nsa_panel) by @goshakkk.
 
+
+## Pypi
+
+* [django-nsa](https://pypi.python.org/pypi/django-nsa)
+
+
 ## License.
 
 [MIT](LICENSE).
