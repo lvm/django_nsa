@@ -1,0 +1,23 @@
+{% extends "nsa/layout.html" %}
+
+{% block title %}Users{% endblock %}
+
+{% block content %}
+<h1>Users</h1>
+<table id="user-data">
+    <thead>
+        <th span="col">ID</th>
+        <th span="col">Name</th>
+        <th span="col">Actions</th>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.get_full_name }}</td>
+            <td><a class="button" href="{% url nsa_users user_id=user.id%}">I think they are a terrorist</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

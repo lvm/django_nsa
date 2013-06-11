@@ -1,0 +1,52 @@
+{% extends "nsa/layout.html" %}
+
+{% block title %}{{ user.get_full_name }}'s secrets{% endblock %}
+
+{% block extrahead %}
+<style>
+#name {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+#number {
+    color: #999;
+}
+#number:before {
+    content: "#";
+}
+.blackout {
+    color: #000;
+    background-color: #000;
+}
+img.black {
+    max-width: 100%;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+{% if secret %}
+<h1 id="name">{{ user.get_full_name }}'s secret #{{ secret.id }}</h1>
+<img class="black" src="{{ STATIC_URL }}img/fuck_you.jpg">
+{% else %}
+<h1 id="name">{{ user.get_full_name }}'s secrets</h1> <span id="number">{{ user.id }}</span>
+<table id="user-data">
+    <thead>
+        <th span="col">ID</th>
+        <th span="col">Actions</th>
+    </thead>
+    <tbody>
+        {% for s in secrets %}
+        <tr>
+            <td>{{ s.id }}</td>
+            <td>
+                <a class="button" href="{% url nsa_users_data user_id=user.id data_id=s.id %}">
+                    I found this suspicious
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "nsa/layout.html" %}
+
+{% block title %}{{ user.get_full_name }}{% endblock %}
+
+{% block extrahead %}
+<style>
+#name {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+#number {
+    color: #999;
+}
+#number:before {
+    content: "#";
+}
+.blackout {
+    color: #000;
+    background-color: #000;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 id="name">{{ user.get_full_name }}</h1> <span id="number">{{ user.id }}</span>
+
+<h2>Attributes</h2>
+<table id="user-data">
+    <thead>
+        <th span="col">Key</th>
+        <th span="col">Value</th>
+    </thead>
+    <tbody>
+        <tr><td>ID</td><td>{{ user.id }}</td></tr>
+        {% for f, v in user_fields %}
+        <tr>
+            <td>{{ f.verbose_name|capfirst }}</td>
+            {% if f.name in "email,date_joined,last_login" %}
+            <td><span class="blackout">{{ v|escape }}</span></td>
+            {% else %}
+            <td>
+              {% if v|pprint in "True,False" %}
+                <img src="{{ STATIC_URL }}img/icon-{{ v|yesno:"yes,no" }}.gif" />
+              {% else %}
+                {{ v }}
+              {% endif %}
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Related data</h2>
+<ul>
+    {% for secret in user.logentry_set.all %}
+    <li><a href="{% url nsa_users_data user_id=user.id data_id=secret.id %}">
+        {{ secret.content_type }}
+    </a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
