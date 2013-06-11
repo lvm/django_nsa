@@ -8,19 +8,13 @@ Let's ~~destroy the right to privacy~~ fight terrorism together!
 ## Freedom matters.
 
 This particular app was written to join the forces of @goshakkk's [nsa_panel](https://github.com/goshakkk/nsa_panel) for Ruby on Rails and 
-@plausibility's [flask-nsa](https://github.com/plausibility/flask-nsa).
+@plausibility's [flask-nsa](https://github.com/plausibility/flask-nsa) for Flask.
 
 ## Enforce.
 
-Add `nsa` to your `INSTALLED_APPS` to your project's `settings.py` file:
-`url(r'^nsa/', include('nsa.urls'))`
-
-And this to your project's `urls.py` file:
-`url(r'^nsa/', include('nsa.urls'))`
-
-Test if everything is free as it should be:
-[http://localhost:8000/nsa](http://localhost:8000/nsa).
-   Use nsa/nsa as credentials.
+Add `nsa` to your `INSTALLED_APPS` to your project's `settings.py` file.  
+And this to your project's `urls.py` file: `url(r'^nsa/', include('nsa.urls'))`  
+Test if everything is free as it should be: [http://localhost:8000/nsa](http://localhost:8000/nsa) (Use nsa/nsa as credentials).
 
 ## Enjoy.
 
@@ -67,7 +61,7 @@ Share the ~~end of privacy~~ good news (or don't, after all users shouldn't know
 
 ![User's secrets](3-users-secrets.png)
 
-![User's secret](4-users-secret.png)
+![User's secret](4-users-secrets.png)
 
 ## Inspiration.
 
@@ -76,8 +70,8 @@ Share the ~~end of privacy~~ good news (or don't, after all users shouldn't know
 
 ## License.
 
-[MIT](MIT-LICENSE).
+[MIT](LICENSE).
 
-NSA Eagle Logo credit [EFF](https://www.eff.org/pages/eff-nsa-graphics).
-CSS and base Templates [flask-nsa](https://github.com/plausibility/flask-nsa) and [960 Grid System](http://960.gs/).
+NSA Eagle Logo credit [EFF](https://www.eff.org/pages/eff-nsa-graphics).  
+CSS and base Templates [flask-nsa](https://github.com/plausibility/flask-nsa) and [960 Grid System](http://960.gs/).  
 `icon-yes.gif` and `icon-no.gif` [Django Project](https://www.djangoproject.com/).
