@@ -1,1 +1,4 @@
 recursive-include nsa *
+
+include README.md
+include LICENSE
